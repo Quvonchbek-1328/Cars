@@ -1,0 +1,43 @@
+﻿@model Tuple<IEnumerable<Entity.Models.CarModels.CarType>, string>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<div class="table-responsive w-100" style="margin-top: 20px;">
+    <h2>Cars</h2>
+    @* oninput="this.form.submit() *@
+    <table class="table table-bordered">
+        <thead>
+            <a asp-action="Create" class="btn btn-primary" style="padding: 5px 10px; margin-right: 40px; font-size: 14px;">
+                <i class="bi bi-plus-circle"></i>
+            </a>
+            <form method="get" asp-action="Index" style="display:inline-block;">
+                <input type="text" name="searchString" value="@Model.Item2" placeholder="Qidirish..." onabort="this.form.submit()" class=" form-control" style="display:inline-block; width:100px; height:18px;" />
+            </form>
+            <tr>
+                <th>#</th>
+                <th>Car Type</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Item1.Count(); i++)
+            {
+                var car = Model.Item1.ElementAt(i);
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td>@car.Type</td>
+                    <td>
+                        <a asp-action="Yangilash" asp-route-id="@car.Id" class="btn btn-warning btn-sm">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@car.Id" class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

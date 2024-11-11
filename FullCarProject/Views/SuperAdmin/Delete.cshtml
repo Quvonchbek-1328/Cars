@@ -1,0 +1,14 @@
+﻿@model Entity.Models.LoginModels.Login
+
+<div>
+    <h2>O'chirish</h2>
+
+    <p>@Model.username (@Model.email) foydalanuvchisini o'chirmoqchimisiz?</p>
+
+    <form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+        <button type="submit" class="btn btn-danger">O'chirish</button>
+        <a asp-action="Index" class="btn btn-secondary">Bekor qilish</a>
+    </form>
+
+</div>
+

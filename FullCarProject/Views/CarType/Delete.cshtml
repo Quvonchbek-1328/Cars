@@ -1,0 +1,19 @@
+﻿@model Entity.Models.CarModels.CarType
+
+@{
+    ViewData["Title"] = "Delete Car Type";
+}
+
+
+<div class="mt-4">
+    <h2>Delete Car Type</h2>
+    <h5>Are you sure you want to delete the company <strong>@Model.Type</strong>?</h5>
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group mt-3">
+            <button type="submit" class="btn btn-danger">Saqlash</button>
+        </div>
+    </form>
+</div>
+
+
