@@ -28,7 +28,7 @@ namespace Entity.EntityContext
             public DbEntityContext CreateDbContext(string[] args)
             {
                 var optionsBuilder = new DbContextOptionsBuilder<DbEntityContext>();
-                optionsBuilder.UseNpgsql(Settings.ConnectionString ?? "Host=localhost;Database=Car;Username=postgres;Password=mirjahon2004;");
+                optionsBuilder.UseNpgsql(Settings.ConnectionString ?? "Host=localhost;Database=Car;Username=postgres;Password=quvonchbek;");
 
                 return new DbEntityContext(optionsBuilder.Options);
             }
